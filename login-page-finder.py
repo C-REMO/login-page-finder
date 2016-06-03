@@ -21,7 +21,8 @@ def PronadjiAdmina():
 		datoteka = open("linkovi.txt","r")
 		link = raw_input("Unesite link stranice u sledećem obliku \n(npr: stranica.com or www.stranica.com )>> ")
 		link = "http://"+link
-		test_zahtjev = Request(link)
+		headers = {'User-Agent': 'Mozilla/5.0 (X11; U; Linux x86_64) Gecko/20071127 Firefox/2.0.0.11'}
+		test_zahtjev = Request(link, headers=headers)
 		otvori = urlopen(test_zahtjev)
 	except URLError:
         	print "\nUnijeli ste pogrešan link, link:", link, "nije dostupan.\n"
@@ -43,7 +44,7 @@ def PronadjiAdmina():
 		if not pod_link:
 			break
 		zahtjev_linka = link+"/"+pod_link
-		zahtjev = Request(zahtjev_linka)
+		zahtjev = Request(zahtjev_linka, headers=headers)
 		pokusano+=1
     		sys.stdout.write("\r" + "Broj provjerenih linkova: %s/%s" %(pokusano, broj_linija))
    		sys.stdout.flush()
