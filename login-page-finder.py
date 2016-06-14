@@ -84,8 +84,8 @@ def space (j):
 		print (end=' ')
 		i+=1
 
-def Exit_gracefully(signum, frame):
-	"""Used for clean exit if user abort with keyboard"""
+def exit_gracefully(signum, frame):
+	"""Used for clean exit if user aborts with keyboard"""
 	signal(SIGINT, original_sigint)
 	try:
 		if input("\n\nStvarno želite izaći? (d/n)> ").lower().startswith('d'):
@@ -94,11 +94,11 @@ def Exit_gracefully(signum, frame):
 		print("\n\nOk ok, Izlazim")
 		exit(1)
 		
-	signal(SIGINT, Exit_gracefully)
+	signal(SIGINT, exit_gracefully)
 
 if __name__ == '__main__':
 	original_sigint = getsignal(SIGINT)
-	signal(SIGINT, Exit_gracefully)
+	signal(SIGINT, exit_gracefully)
 	credits()
 	load_data()
 
