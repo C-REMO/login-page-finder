@@ -84,7 +84,7 @@ if __name__ == '__main__':
 	original_sigint = getsignal(SIGINT)
 	signal(SIGINT, exit_gracefully)
 	parser = argparse.ArgumentParser(description=DESCRIPTION, epilog=AUTHOR)
-	parser.add_argument(dest = "URL", help = "Target URL (e.g. \"http://www.target.com\")")
+	parser.add_argument("-u", "--url", dest = "URL", help = "Target URL (e.g. \"http://www.target.com\")", required=True)
 	args = parser.parse_args()
 	if args.URL:
 		load_data(args.URL if args.URL.startswith("http") else "http://%s" % args.URL)
