@@ -89,4 +89,4 @@ if __name__ == '__main__':
 	if args.URL:
 		load_data(args.URL if args.URL.startswith("http") else "http://%s" % args.URL)
 	else:
-		print (parser.print_help())
+		parser.print_help()
