@@ -7,7 +7,7 @@ Using updated link list of 2297 sub_links.
 usage: ./lpf.py -u URL
 
 <p align="center">
-  <img src="https://i.imgur.com/EUE3mJr.png"/>
+  <img src="https://i.imgur.com/4FnS5at.png"/>
 </p>
 
 
